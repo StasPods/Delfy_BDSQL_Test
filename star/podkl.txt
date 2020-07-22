@@ -1,0 +1,20 @@
+i:=1;
+  //это подключение к бд и разрешение брать с нее данные
+  SQLite3Connection1.DatabaseName := 'test_bd.db';
+  SQLite3Connection1.Connected := True;
+   Datasource1.DataSet := SQLQuery1;
+  SQLQuery1.Active:=False;
+ // SQLQuery1.SQL.Text:='SELECT id, substr(Vopros, 0, 20) FROM  Voprosi';
+ //SQLQuery1.SQL.Text:='SELECT FROM  sqlite_sequence';
+  // SQLQuery1.Active:=True;
+  // это первый запрос к бд
+ SQLQuery1.Close;          // очищается прошлый запрос
+ SQLQuery1.SQL.Clear;      //разрешение что могу писать запрос
+ SQLQuery1.SQL.Add('SELECT id, Vopros FROM  Voprosi');  // сам запрос
+ SQLQuery1.Open;// чтение запроса
+ k:= SQLQuery1.RecordCount;
+  Label1.Caption:=SQLQuery1.Fields[0].AsString;  // запись в label 0 это номер столбца так как он 1
+ SQLQuery1.Next;      // переход на следующую строчку ответа на запрос
+  Label2.Caption:=SQLQuery1.Fields[0].AsString;
+ // SQLQuery1.Active:=True;
+ //здесь выводится вопрос и варианты ответов   

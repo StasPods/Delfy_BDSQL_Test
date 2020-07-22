@@ -1,0 +1,11 @@
+      SQLite3Connection1.DatabaseName := 'test_bd.db';
+  SQLite3Connection1.Connected := True;
+   Datasource1.DataSet := SQLQuery1;
+  SQLQuery1.Active:=False;
+  //SQLQuery1.sql.add('SET character_set_client=utf8, character_set_connection=cp1251, character_set_results=utf8;');
+
+//   SQLQuery1.Close;          // очищается прошлый запрос
+// SQLQuery1.SQL.Clear;      //разрешение что могу писать запрос
+// SQLQuery1.SQL.Add('SELECT * FROM  Voprosi, Otveti Where Voprosi.id = Otveti.№Voprosa');  // сам запрос
+// SQLQuery1.Open;// чтение запроса
+// SQLQuery1.Active:=True;

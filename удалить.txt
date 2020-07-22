@@ -1,0 +1,17 @@
+DELETE FROM `Otveti` WHERE `_rowid_` IN ('1'); удаление строчки
+DELETE FROM `Otveti` WHERE `_rowid_` IN ('2');
+DELETE FROM `Otveti` WHERE `_rowid_` IN ('3');
+
+ON DELETE CASCADE
+
+INSERT INTO Otveti (№Voprosa, №Otveta, Otvet, Pravilnii) values(1, 1, 'yftftf', 0) добавление записей
+
+UPDATE users SET login = 'TestUser2', pass='1234560' WHERE login='TestUser' обновиь данные
+
+SELECT * FROM Voprosi JOIN Otveti WHERE Voprosi.id = Otveti.№Voprosa;
+
+DELETE FROM Voprosi WHERE id=2
+
+Select id From Voprosi Where Vopros = 'Река Кр кр'
+
+INSERT INTO Otveti (№Voprosa, №Otveta, Otvet, Pravilnii) values((Select id From Voprosi Where Vopros = 'Река Кр кр'), 1, 'Кубань', 1) 

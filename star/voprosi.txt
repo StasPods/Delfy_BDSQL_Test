@@ -1,0 +1,15 @@
+n:=IntToStr(i);
+    SQLQuery1.Close;
+  SQLQuery1.SQL.Clear;
+  SQLQuery1.SQL.Add('SELECT substr(Vopros, 0, 20), substr(Otvet,0,15) FROM  Voprosi, Otveti WHERE (Voprosi.id = '+n+') AND Otveti.№Voprosa = '+n+'');
+  if i<=k then
+  begin
+  SQLQuery1.Open;
+   Label3.Caption:=SQLQuery1.Fields[0].AsString;   // здесь вопрос
+ Label4.Caption:=SQLQuery1.Fields[1].AsString;    // здесь 1 вариант ответа
+ SQLQuery1.Next;                                   // переход на следующую строчку
+ Label5.Caption:=SQLQuery1.Fields[1].AsString;     // здесь 2 вариант ответа
+ SQLQuery1.Next;
+ Label6.Caption:=SQLQuery1.Fields[1].AsString;     // здесь 2 вариант ответа
+  SQLQuery1.Active:=True;
+  i:=i+1;        

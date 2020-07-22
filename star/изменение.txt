@@ -1,0 +1,14 @@
+update Voprosi set Vopros:=:p1 where id=(Select id From Voprosi Where Vopros = :p2));
+
+INSERT INTO Otveti (πVoprosa, πOtveta, Otvet, Pravilnii) values((Select id From Voprosi Where Vopros = :p1), 1, :p2, 1) ;
+
+update Otveti set πVoprosa:=(Select id From Voprosi Where Vopros = combobox1.text), πOtveta:=1, Otvet:=edit2.text, 1, 
+where πVoprosa = (Select id From Voprosi Where Vopros = combobox1.text));
+
+select Otvet from Otveti where πVoprosa = (select id from Voprosi where Vopros = '—ÍÓÎ¸ÍÓ ·Û‰ÂÚ 3+3') and πOtveta = 1;
+
+       Form1.SQLQuery1.SQL.Clear;
+       Form1.SQLQuery1.SQL.Append('select substr(Otvet, 0, 20) from Otveti where πVoprosa = (select id from Voprosi where Vopros = :p1) and πOtveta = 1;');
+Form1.SQLQuery1.Params.Items[0].asstring:=ComboBox1.Text;
+       Form1.SQLQuery1.Active:=true;
+       Edit2.Text:=Form1.SQLQuery1.Fields.Fields[0].DisplayText;   
